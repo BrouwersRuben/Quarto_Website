@@ -152,21 +152,25 @@ a.QuartoBoardGame {
     transition: transform 0.2s ease-in-out;
 }
 
-#Inventor:hover {
+/* TODO: This I might delete */
+
+/* #Inventor:hover {
     transform: rotate(180deg);
-}
+} */
 
 #QuartoInPlay {
-    margin: 10px 10px 10px 20px;
+    margin: 10px 30px 30px 20px;
     float: left;
-    height: 220px;
+    height: 200px;
     width: auto;
     transition: transform 0.2s ease-in-out;
 }
 
-#QuartoInPlay:hover {
+/* TODO: This I might delete... */
+
+/* #QuartoInPlay:hover {
     transform: scale(1.5);
-}
+} */
 
 .Intro2 > p {
     margin: 10px;
