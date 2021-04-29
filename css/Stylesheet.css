@@ -27,7 +27,7 @@ header {
 }
 
 .Logo {
-    height: 70px;
+    height: 120px;
     display: block;
     margin: 60px auto 10px;
     padding: 5px 5px 0 5px;
@@ -40,8 +40,8 @@ h2 {
     border-bottom: black solid 3px;
     margin: 15px auto 25px;
     text-align: center;
-    font-size: 1.4em;
-    font-weight: normal;
+    font-size: 2.4em;
+    font-weight: bold;
 }
 
 h3 {
@@ -127,7 +127,7 @@ a.nav:hover {
     margin: 15px 10px;
 }
 
-a.DwarfFortressLink {
+a.QuartoBoardGame {
     margin: 20px 0;
     clear: both;
     display: flex;
@@ -140,10 +140,11 @@ a.DwarfFortressLink {
     border: #A6935B solid 1px;
 }
 
-#GardenGnome {
+#Inventor {
     margin: 0 10px 20px 0;
+    padding: 0 20px;
     float: right;
-    height: 170px;
+    height: 150px;
     width: auto;
     /*
     We have not seen the following line of code, but it makes the animations if you hover over the image
@@ -151,19 +152,19 @@ a.DwarfFortressLink {
     transition: transform 0.2s ease-in-out;
 }
 
-#GardenGnome:hover {
+#Inventor:hover {
     transform: rotate(180deg);
 }
 
-#DwarfFortress {
+#QuartoInPlay {
     margin: 10px 10px 10px 20px;
     float: left;
-    height: 50px;
+    height: 220px;
     width: auto;
     transition: transform 0.2s ease-in-out;
 }
 
-#DwarfFortress:hover {
+#QuartoInPlay:hover {
     transform: scale(1.5);
 }
 
