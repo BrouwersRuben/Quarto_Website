@@ -1,0 +1,259 @@
+/*These following lines are general css rules for the whole website*/
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: Arial;
+    background-color: white;
+    color: black;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Logo {
+    height: 70px;
+    display: block;
+    margin: 60px auto 10px;
+    padding: 5px 5px 0 5px;
+    border: 1px solid black;
+}
+
+h2 {
+    padding: 5px;
+    border-top: black solid 3px;
+    border-bottom: black solid 3px;
+    margin: 15px auto 25px;
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: normal;
+}
+
+h3 {
+    padding: 5px;
+    border-bottom: black solid 1px;
+    width: 100%;
+    margin: 10px auto;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+p,
+a {
+    font-size: large;
+}
+
+/*TODO: Make the footer stick to the bottom*/
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    clear: both;
+    border-top: 1px solid black;
+    margin: 0;
+    padding: 3px 10px;
+    font-size: 12px;
+}
+
+p.footer {
+    margin: 5px 0;
+}
+
+/*The following lines are for the navigation*/
+
+nav a {
+    position: relative;
+    display: table-cell;
+    text-align: left;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+a.nav {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+a.nav:hover {
+    color: #A6935B;
+}
+
+.navActive {
+    color: #A6935B;
+}
+
+.navUnActive {
+    color: black;
+}
+
+/*These following lines are mainly for the landing page of the website*/
+
+.Banner > img {
+    width: 100%;
+    max-width: 700px;
+    border: 1px solid black;
+    margin: 0 auto 35px;
+    display: block;
+}
+
+.Intro1 {
+    margin: 10px 0;
+}
+
+.IntroP1 {
+    text-align: right;
+}
+
+.Intro1 > p {
+    margin: 15px 10px;
+}
+
+a.DwarfFortressLink {
+    margin: 20px 0;
+    clear: both;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    background-color: #A6935B;
+    text-decoration: none;
+    padding: 7px;
+    border: #A6935B solid 1px;
+}
+
+#GardenGnome {
+    margin: 0 10px 20px 0;
+    float: right;
+    height: 170px;
+    width: auto;
+    /*
+    We have not seen the following line of code, but it makes the animations if you hover over the image
+     */
+    transition: transform 0.2s ease-in-out;
+}
+
+#GardenGnome:hover {
+    transform: rotate(180deg);
+}
+
+#DwarfFortress {
+    margin: 10px 10px 10px 20px;
+    float: left;
+    height: 50px;
+    width: auto;
+    transition: transform 0.2s ease-in-out;
+}
+
+#DwarfFortress:hover {
+    transform: scale(1.5);
+}
+
+.Intro2 > p {
+    margin: 10px;
+    text-align: center;
+}
+
+.GamePlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px auto;
+}
+
+.GamePlay > h3 {
+    margin-bottom: 20px;
+}
+
+.GamePlay > iframe {
+    border: 1px solid black;
+}
+
+/*These following lines are for the screenshots page
+I Used flex, because it was the easiest way to make sure all these pictures
+align correctly. There are other ways to do this, but because this is something we learned in the last
+lesson, I thought it would be best to also implement it in my website.
+ */
+
+.Screenshots {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 7px;
+}
+
+.Screenshots > img {
+    margin: 15px;
+    width: 100%;
+    max-width: 450px;
+    display: inline-block;
+}
+
+/*
+These following lines are used in the dowload page
+ */
+
+a.gnomeExplorers {
+    margin: 20px 0;
+    clear: both;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-color: #A6935B;
+    text-decoration: none;
+    padding: 7px;
+    border: #A6935B solid 1px;
+}
+
+a.gnomeExplorers:hover {
+    color: black;
+}
+
+/*These following lines are mainly for the about page.
+ */
+
+.Teammember {
+    clear: both;
+    margin: 7px;
+}
+
+.Teammember > h4 {
+    margin: 10px auto;
+    text-align: center;
+    text-decoration: underline black;
+}
+
+.Teammember > h5 {
+    margin: 10px auto;
+}
+
+.Headshot {
+    width: 90px;
+    margin: 0 15px;
+    border: 3px solid black;
+    float: left;
+}
+
+.Teammember > p {
+    float: right;
+}

@@ -1,23 +1,78 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="generator" content="GitLab Pages">
-    <title>Plain HTML site using GitLab Pages</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="navbar">
-      <a href="">Plain HTML Example</a>
-      <a href="">Repository</a>
-      <a href="">Other Examples</a>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/Stylesheet.css">
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="shortcut icon" type="image/ico" href="media\Logo\favicon.ico"/>
+</head>
+<body>
+    <div class="content">
+        <header>
+            <div>
+                <img class="Logo" src="media/Logo/PixelLlamaFortniteLogo.png" alt="Logo">
+                <!-- I do not know what our logo is, so I just thook this-->
+            </div>
+            <nav>
+                <div class="nav">
+                    <a class="nav navActive" href="index.html">Home</a>
+                    <a class="nav navUnActive" href="html/Screenshots.html">Pictures</a>
+                    <a class="nav navUnActive" href="html/Download.html">Download</a>
+                    <a class="nav navUnActive" href="html/About.html">About</a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <h2>Gnome Explorers</h2>
+            <div class="Banner">
+                <img src="media/Banner/UnderGround.jpg" alt="Scary Gnome">
+            </div>
+            <div class="Intro1">
+                <img src="media/GardenGnome.jpg" alt="GardenGnomeAscii" id="GardenGnome">
+                <p class="IntroP1">
+                    We based our game <Strong><em>'Gnome Explorers'</em></Strong> of the already existing and successful game
+                    <Strong><em>'Dwarf Fortress'</em></Strong>.
+                </p>
+                <img src="media/DwarfFortressLogo.png" alt="Logo of Dwarf Fortress" id="DwarfFortress">
+                <p>
+                    Dwarf Fortress was officially made by <Strong>Bay12</Strong> in 2006. His original goal was <em>"to create
+                    a fantasy world simulator in which it is possible to take part in a rich history, occupying a variety of roles
+                    through the course of several games."</em>
+                </p>
+                <p>
+                    We tried to fulfil this as closely as possible, as our game is smaller and as we had less time and manpower to
+                    develop, we had to skip out on some of the features that "Dwarf Fortress" does give you, like auto generating maps,
+                    a detailed storyline and many many treasures.
+                </p>
+                <p>
+                    Gnome Explorers is a high intensity, easy to play, no story line, heartbeat raising game, with an easter egg...<br>
+                    Make sure to play it and let us know if you find the way to the <em>golden chamber</em> yourself, or perhaps beat some of our high scores!
+                </p>
+            </div>
+            <a class="DwarfFortressLink" target="_blank" rel="noopener noreferrer" href="http://www.bay12games.com/dwarves/">
+                <strong>
+                    <em>The official 'Dwarf Fortress' website</em>
+                </strong>
+            </a>
+            <div class="Intro2">
+                <h3>Overall Aim</h3>
+                <!--I took this out of our scope document-->
+                <p>We are developing a game to aid in our training to become proficient developers and improve on the skills
+                    needed for each of the member’s roles. The game will entertain all types of audiences and provide a great
+                    user experience of a retro ASCII game with RPG elements about Gnomes exploring dungeons.
+                    Our team will take a simple approach to world generation and objectives for the player</p>
+            </div>
+            <div class="GamePlay" controls>
+                <h3>Gameplay video</h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/xvldwKUc9Io" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </main>
     </div>
-
-    <h1>Hello World!</h1>
-
-    <p>
-      This is a simple plain-HTML website on GitLab Pages, without any fancy static site generator.
+<footer>
+    <p class="footer">
+        &copy; 2021 WildLlamaEntertainment
     </p>
-  </body>
+</footer>
+</body>
 </html>
-
