@@ -59,8 +59,6 @@ a {
     font-size: large;
 }
 
-/*TODO: Make the footer stick to the bottom*/
-
 footer {
     display: flex;
     justify-content: center;
@@ -217,7 +215,7 @@ lesson, I thought it would be best to also implement it in my website.
 These following lines are used in the dowload page
  */
 
-a.gnomeExplorers {
+a.quartoGame {
     margin: 20px 0;
     clear: both;
     display: flex;
@@ -230,35 +228,65 @@ a.gnomeExplorers {
     border: #A6935B solid 1px;
 }
 
-a.gnomeExplorers:hover {
+a.quartoGame:hover {
     color: black;
 }
 
 /*These following lines are mainly for the about page.
  */
+.team{
+    /* TODO: Align the item to the center  */
+    display: flex;
+    justify-content: center;
+}   
 
-.Teammember {
-    clear: both;
-    margin: 7px;
-}
-
-.Teammember > h4 {
-    margin: 10px auto;
-    text-align: center;
-    text-decoration: underline black;
-}
-
-.Teammember > h5 {
-    margin: 10px auto;
-}
-
-.Headshot {
-    width: 90px;
-    margin: 0 15px;
-    border: 3px solid black;
+.teamcolumn {
     float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
 }
 
-.Teammember > p {
-    float: right;
+@media screen and (max-width: 380px) {
+    .column {
+        width: 100%;
+        display: block;
+    }
+}
+
+.container {
+    padding: 0 20px;   
+}
+
+.teammember {
+    box-shadow: 0 4px 8px 0 #000000;
+}
+
+.container::after, .row::after {
+    content: "";  
+    clear: both;
+    display: table;
+} 
+
+.title {
+    color: #A6935B;
+}
+
+.button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #A6935B;
+    text-align: center;
+    width: 100%;
+}
+  
+.button:hover {
+    background-color: #6d613b;
+}
+
+#Headshot {
+    width: 100%;
 }
