@@ -349,6 +349,17 @@ a.quartoGame:hover {
 
 /* These following lines of code are for the Project presentation page */
 
+h4{
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.7rem;
+}
+
+a.tileLink{
+    text-decoration: none;
+    color: #000000;
+}
+
 .tiles{
     display: flex;
 }   
