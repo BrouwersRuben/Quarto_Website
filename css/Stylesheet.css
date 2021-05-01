@@ -380,7 +380,8 @@ a.tileLink{
 }
 
 .container {
-    padding: 20px;   
+    padding: 20px;  
+    margin: 15px; 
 }
 
 .tile {
@@ -395,6 +396,12 @@ a.tileLink{
 
 #TileImage {
     width: 100%;
+}
+
+h5{
+    font-size: 2.5em;
+    color: #A6935B;
+    border-bottom: 5px double #000000;
 }
 
 /* These following lines of css are for the specific sprint pages */
@@ -422,6 +429,17 @@ color: #000000;
 text-decoration: none;
 }
 
+.itemActive a{
+    color: #A6935B;
+    text-decoration: none;
+}
+
 .item a:hover{
 color: #A6935B;
+}
+
+.AlignCenter{
+    display: block;
+    margin: 0px auto;
+    width: 100%;
 }
