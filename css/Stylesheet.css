@@ -139,6 +139,45 @@ a.QuartoBoardGame {
     border: #A6935B solid 1px;
 }
 
+a.QuartoBoardGame:hover {
+    margin: 20px 0;
+    clear: both;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #A6935B;
+    background-color: #ffffff;
+    text-decoration: none;
+    padding: 7px;
+    border: #A6935B solid 1px;
+}
+
+a.DownloadIndexPage{
+    margin: 20px 0;
+    clear: both;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #A6935B;
+    background-color: #000000;
+    text-decoration: none;
+    padding: 7px;
+    border: #000000 solid 1px;
+}
+
+a.DownloadIndexPage:hover{
+    margin: 20px 0;
+    clear: both;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #000000;
+    background-color: #A6935B;
+    text-decoration: none;
+    padding: 7px;
+    border: #000000 solid 1px;
+}
+
 #Inventor {
     margin: 0 10px 20px 0;
     padding: 0 20px;
@@ -288,14 +327,90 @@ a.quartoGame:hover {
     background-color: #6d613b;
 }
 
-#Headshot {
-    width: 100%;
-}
-
-#AIImage{
+.LeftAlign{
     margin: 0 10px 20px 0;
     padding: 0 20px;
     float: left;
     height: 150px;
     width: auto;
+}
+
+.RightAlign{
+    margin: 0 10px 20px 0;
+    padding: 0 20px;
+    float: right;
+    height: 150px;
+    width: auto;
+}
+
+#Headshot {
+    width: 100%;
+}
+
+/* These following lines of code are for the Project presentation page */
+
+.tiles{
+    display: flex;
+}   
+
+.tilescolumn {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+    min-width: 240px;
+}
+
+@media screen and (max-width: 640px) {
+    .tiles {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.container {
+    padding: 20px;   
+}
+
+.tile {
+    box-shadow: 0 4px 8px 0 #000000;
+}
+
+.container::after, .row::after {
+    content: "";  
+    clear: both;
+    display: table;
+}
+
+#TileImage {
+    width: 100%;
+}
+
+/* These following lines of css are for the specific sprint pages */
+
+.breadcrumb{
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 16px;
+    list-style: none;
+}
+    
+.item{
+display: inline;
+font-size: 18px;
+}
+
+.breadcrumb li+li:before{
+padding: 8px;
+color: #6d613b;
+content: ">>";
+}
+
+.item a{
+color: #000000;
+text-decoration: none;
+}
+
+.item a:hover{
+color: #A6935B;
 }
