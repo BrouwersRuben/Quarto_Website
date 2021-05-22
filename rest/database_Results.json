@@ -7,7 +7,7 @@
     "TURNS": 5,
     "TIME_PLAYED": 7.41,
     "GAME_DIFFICULTY": 0,
-    "HAS_QUARTO": 0,
+    "HAS_QUARTO": "No",
     "Average Move Duration": "  1.48"
   },
   {
@@ -18,7 +18,7 @@
     "TURNS": 3,
     "TIME_PLAYED": 4.97,
     "GAME_DIFFICULTY": 0,
-    "HAS_QUARTO": 0,
+    "HAS_QUARTO": "No",
     "Average Move Duration": "  1.66"
   },
   {
@@ -29,7 +29,7 @@
     "TURNS": 4,
     "TIME_PLAYED": 4.79,
     "GAME_DIFFICULTY": 0,
-    "HAS_QUARTO": 0,
+    "HAS_QUARTO": "No",
     "Average Move Duration": "  1.20"
   },
   {
@@ -40,7 +40,7 @@
     "TURNS": 3,
     "TIME_PLAYED": 5.46,
     "GAME_DIFFICULTY": 0,
-    "HAS_QUARTO": 0,
+    "HAS_QUARTO": "No",
     "Average Move Duration": "  1.82"
   },
   {
@@ -51,7 +51,7 @@
     "TURNS": 4,
     "TIME_PLAYED": 7.84,
     "GAME_DIFFICULTY": 0,
-    "HAS_QUARTO": 1,
+    "HAS_QUARTO": "Yes",
     "Average Move Duration": "  1.96"
   },
   {
@@ -62,7 +62,7 @@
     "TURNS": 7,
     "TIME_PLAYED": 26.76,
     "GAME_DIFFICULTY": 0,
-    "HAS_QUARTO": 1,
+    "HAS_QUARTO": "Yes",
     "Average Move Duration": "  3.82"
   },
   {
@@ -73,7 +73,7 @@
     "TURNS": 6,
     "TIME_PLAYED": 10.96,
     "GAME_DIFFICULTY": 0,
-    "HAS_QUARTO": 0,
+    "HAS_QUARTO": "No",
     "Average Move Duration": "  1.83"
   }
 ]
