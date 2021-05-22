@@ -5,6 +5,15 @@ body {
     height: 100%;
 }
 
+table, td, th {
+    border: 1px solid black;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
 body {
     display: flex;
     flex-direction: column;
@@ -479,22 +488,22 @@ color: #A6935B;
     margin: 5px 10px 5px 0;
     padding: 10px;
     border: 1px solid #ddd;
-  }
+}
   
-  .form button {
+.form button {
     padding: 10px 20px;
     font-weight: bold;
     background-color: #A6935B;
     border: 1px solid #000000;
     color: #000000;
     cursor: pointer;
-  }
-  
-  .form button:hover {
-    background-color: #6d613b;
-  }
+}
 
-  @media (max-width: 860px) {
+.form button:hover {
+    background-color: #6d613b;
+}
+
+@media (max-width: 860px) {
     .form input {
       margin: 10px 0;
     }
@@ -503,4 +512,8 @@ color: #A6935B;
       flex-direction: column;
       align-items: stretch;
     }
+}
+
+.dbTable{
+    margin-top: 30px;
 }
