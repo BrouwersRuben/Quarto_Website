@@ -1,17 +1,124 @@
 
 // const url = 'https://team7.2020-21.acs.kdg.be/rest/database_Results.json'
-const url = '../rest/database_Results.json';
-var DBdata = ''
+// const url = '../rest/database_Results.json';
 
-bt = document.getElementById('SearchButton')
+// bt = document.getElementById('SearchButton')
+//
+// bt.addEventListener("rt", event => {
+//     console.log(event)
+//     callData(url)}
+// );
+//
+// function callData(url){
+//     fetch(url)
+//         .then(resp =>resp.json())
+//         .then(data => console.log(data))
+// }
 
-bt.addEventListener("mousedown", event => {
-    fetch(url)
-        .then(resp => resp.text())
-        .then(data => buildTable(data));
-});
+var DBdata = [
+    {
+        "ID": 3,
+        "USERNAME": "who?",
+        "DATE_STARTED": "2021-05-22 17:08:17.140000",
+        "SCORE": 7406,
+        "TURNS": 5,
+        "TIME_PLAYED": 7.41,
+        "GAME_DIFFICULTY": 0,
+        "HAS_QUARTO": 0,
+        "Average Move Duration": "  1.48"
+    },
+    {
+        "ID": 4,
+        "USERNAME": "dummy",
+        "DATE_STARTED": "2021-05-22 17:09:45.185000",
+        "SCORE": 4973,
+        "TURNS": 3,
+        "TIME_PLAYED": 4.97,
+        "GAME_DIFFICULTY": 0,
+        "HAS_QUARTO": 0,
+        "Average Move Duration": "  1.66"
+    },
+    {
+        "ID": 1,
+        "USERNAME": "souljaboytellem",
+        "DATE_STARTED": "2021-05-22 17:02:54.870000",
+        "SCORE": 4791,
+        "TURNS": 4,
+        "TIME_PLAYED": 4.79,
+        "GAME_DIFFICULTY": 0,
+        "HAS_QUARTO": 0,
+        "Average Move Duration": "  1.20"
+    },
+    {
+        "ID": 5,
+        "USERNAME": "whoopty",
+        "DATE_STARTED": "2021-05-22 17:12:21.420000",
+        "SCORE": 5463,
+        "TURNS": 3,
+        "TIME_PLAYED": 5.46,
+        "GAME_DIFFICULTY": 0,
+        "HAS_QUARTO": 0,
+        "Average Move Duration": "  1.82"
+    },
+    {
+        "ID": 6,
+        "USERNAME": "deez",
+        "DATE_STARTED": "2021-05-22 17:15:01.396000",
+        "SCORE": 7837,
+        "TURNS": 4,
+        "TIME_PLAYED": 7.84,
+        "GAME_DIFFICULTY": 0,
+        "HAS_QUARTO": 1,
+        "Average Move Duration": "  1.96"
+    },
+    {
+        "ID": 7,
+        "USERNAME": "loser",
+        "DATE_STARTED": "2021-05-22 17:15:34.429000",
+        "SCORE": 26760,
+        "TURNS": 7,
+        "TIME_PLAYED": 26.76,
+        "GAME_DIFFICULTY": 0,
+        "HAS_QUARTO": 1,
+        "Average Move Duration": "  3.82"
+    },
+    {
+        "ID": 2,
+        "USERNAME": "drain",
+        "DATE_STARTED": "2021-05-22 17:03:30.002000",
+        "SCORE": 10957,
+        "TURNS": 6,
+        "TIME_PLAYED": 10.96,
+        "GAME_DIFFICULTY": 0,
+        "HAS_QUARTO": 0,
+        "Average Move Duration": "  1.83"
+    }
+]
 
-// buildTable(DBdata)
+GameID = document.getElementById("Id")
+PlayerName = document.getElementById("PlayerName")
+Win = document.getElementById("Win")
+Lose = document.getElementById("Lose")
+Search = document.getElementById("SearchButton")
+
+Search.addEventListener("mousedown", event => {
+    var ID = GameID.value
+    var data = searchTable(ID, DBdata)
+    buildTable(data)
+})
+
+buildTable(DBdata)
+
+function searchTable(value, array){
+    var filteredData = []
+    for (var i = 0; i < array.length; i++){
+        var ID = array[i].ID
+        if (ID.includes(value)){
+            filteredData.push(array[i])
+        }
+    }
+    return filteredData
+}
 
 function buildTable(data){
     var table = document.getElementById("DatabaseResults")
@@ -25,6 +132,8 @@ function buildTable(data){
         table.innerHTML += row
     }
 }
+
+
 
 
 // https://www.encodedna.com/javascript/populate-json-data-to-html-table-using-javascript.htm 
