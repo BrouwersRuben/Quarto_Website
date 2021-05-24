@@ -115,6 +115,8 @@ function addRow(data){
     table.innerHTML += row;
 }
 
+//TODO: use a higher order function to do this.
+
 function buildTable(data){
     table.innerHTML = ''
     if(GameID.value != ""){
