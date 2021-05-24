@@ -506,3 +506,7 @@ color: #A6935B;
 .dbTable{
     margin: 30px 0 30px;
 }
+
+.selected{
+    background-color: #dbcda8;
+}

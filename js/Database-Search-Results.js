@@ -20,29 +20,44 @@ const SCOREHead = document.getElementById("SCOREHead")
 const AVERAGEHead = document.getElementById("AVERAGEHead")
 const RESULTHead = document.getElementById("RESULTHead")
 
+const IDHeadCOL = document.getElementById("IDHeadCOL")
+const DateCOL = document.getElementById("DATAHeadCOL")
+const NAMEHeadCOL = document.getElementById("NAMEHeadCOL")
+const SCOREHeadCOL = document.getElementById("SCOREHeadCOL")
+const AVERAGEHeadCOL = document.getElementById("AVERAGEHeadCOL")
+const RESULTHeadCOL = document.getElementById("RESULTHeadCOL")
 
-Date.addEventListener("click", () => {
-    SortColumn(Date)
-})
+//TODO: Highlight and reset columns when going to another one...
 
 IDHead.addEventListener("click", () => {
     SortColumn(IDHead)
+    IDHeadCOL.setAttribute("class", "selected")
+})
+
+Date.addEventListener("click", () => {
+    SortColumn(Date)
+    DateCOL.setAttribute("class", "selected")
 })
 
 NAMEHead.addEventListener("click", () => {
     SortColumn(NAMEHead)
+    NAMEHeadCOL.setAttribute("class", "selected")
+    
 })
 
 SCOREHead.addEventListener("click", () => {
     SortColumn(SCOREHead)
+    SCOREHeadCOL.setAttribute("class", "selected")
 })
 
 AVERAGEHead.addEventListener("click", () => {
     SortColumn(AVERAGEHead)
+    AVERAGEHeadCOL.setAttribute("class", "selected")
 })
 
 RESULTHead.addEventListener("click", () => {
     SortColumn(RESULTHead)
+    RESULTHeadCOL.setAttribute("class", "selected")
 })
 
 Search.addEventListener("click", event => {
@@ -76,6 +91,10 @@ function SortColumn(element){
 
     element.innerHTML = text
     buildTable(DBdata)
+}
+
+function SelectedColumn(){
+
 }
 
 function DataChecker(data, value, opositeValue){
