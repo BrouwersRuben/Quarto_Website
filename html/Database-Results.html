@@ -34,15 +34,23 @@
                 <label for="Lose">Lost</label>
                 <input type="radio" name="WinState" id="Win" value="1">
                 <label for="Win">Won</label>
+                <label for="score"><strong>Score: </strong></label>
+                <input type="number" name="Score" id="Score">
+                <select name="SelectScore" id="SelectScore" form="SelectScore">
+                    <option value="Above">Above</option>
+                    <option value="Below">Below</option>
+                </select>
                 <input type="submit" id="SearchButton">
             </form>
             <table class="dbTable">
                 <thead>
                     <tr>
-                        <th data-column="ID" data-order="desc" id="IDHead" style="width: 5%;">ID</th>
-                        <th data-column="USERNAME" data-order="desc" id="NAMEHead" style="width: 60%;">Player Name</th>
-                        <th data-column="TIME_PLAYED" data-order="desc" id="SCOREHead" style="width: 10%;">Score</th>
-                        <th data-column="HAS_QUARTO" data-order="desc" id="RESULTHead" style="width: 25%;">Game Result</th>
+                        <th data-column="ID" data-order="desc" id="IDHead">ID</th>
+                        <th data-column="DATE_STARTED" data-order="desc" id="DATAHead">Date</th>
+                        <th data-column="USERNAME" data-order="desc" id="NAMEHead">Player Name</th>
+                        <th data-column="SCORE" data-order="desc" id="SCOREHead">Score</th>
+                        <th data-column="Average Move Duration" data-order="desc" id="AVERAGEHead">Average move duration</th>
+                        <th data-column="HAS_QUARTO" data-order="desc" id="RESULTHead">Game Result</th>
                     </tr>
                 </thead>
                 <tbody id="DatabaseResults">

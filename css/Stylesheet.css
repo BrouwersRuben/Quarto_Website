@@ -475,8 +475,8 @@ color: #A6935B;
 
 .form{
     display: flex;
-    flex-flow: row wrap;
-    align-items: center
+    flex-direction: column;
+    align-items: stretch;
 }
 
 .form label{
@@ -501,17 +501,6 @@ color: #A6935B;
 
 .form #SearchButton:hover {
     background-color: #6d613b;
-}
-
-@media (max-width: 860px) {
-    .form input {
-      margin: 10px 0;
-    }
-    
-    .form {
-      flex-direction: column;
-      align-items: stretch;
-    }
 }
 
 .dbTable{

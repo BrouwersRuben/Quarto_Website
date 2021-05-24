@@ -1,84 +1,137 @@
 // const url = 'https://team7.2020-21.acs.kdg.be/rest/database_Results.json'
 const url = '../rest/database_Results.json';
-let DBdata = []
+
+const table = document.getElementById("DatabaseResults")
 
 const GameID = document.getElementById("Id")
 const PlayerName = document.getElementById("PlayerName")
 const Win = document.getElementById("Win")
 const Lose = document.getElementById("Lose")
 const Search = document.getElementById("SearchButton")
+const Score = document.getElementById("Score");
+const ScoreSelect = document.getElementById("SelectScore");
 
 const th = document.querySelector("th")
 
 const IDHead = document.getElementById("IDHead")
+const Date = document.getElementById("DATAHead")
 const NAMEHead = document.getElementById("NAMEHead")
 const SCOREHead = document.getElementById("SCOREHead")
+const AVERAGEHead = document.getElementById("AVERAGEHead")
 const RESULTHead = document.getElementById("RESULTHead")
 
-IDHead.addEventListener("click", event => {
-    var column = IDHead.dataset.column
-    var order = IDHead.dataset.order
-    console.log("IDHead was clicked", column, order)
 
-    if (order == 'desc'){
-       IDHead.dataset.order.
-    } else {
-        console.log("asc")
-    }
+Date.addEventListener("click", () => {
+    SortColumn(Date)
 })
 
-NAMEHead.addEventListener("click", event => {
-    var column = NAMEHead.dataset.column
-    var order = NAMEHead.dataset.order
-    console.log("NAMEHead was clicked", column, order)
+IDHead.addEventListener("click", () => {
+    SortColumn(IDHead)
 })
 
-SCOREHead.addEventListener("click", event => {
-    var column = SCOREHead.dataset.column
-    var order = SCOREHead.dataset.order
-    console.log("SCOREHead was clicked", column, order)
+NAMEHead.addEventListener("click", () => {
+    SortColumn(NAMEHead)
 })
 
-RESULTHead.addEventListener("click", event => {
-    var column = RESULTHead.dataset.column
-    var order = RESULTHead.dataset.order
-    console.log("RESULTHead was clicked", column, order)
+SCOREHead.addEventListener("click", () => {
+    SortColumn(SCOREHead)
+})
+
+AVERAGEHead.addEventListener("click", () => {
+    SortColumn(AVERAGEHead)
+})
+
+RESULTHead.addEventListener("click", () => {
+    SortColumn(RESULTHead)
 })
 
 Search.addEventListener("click", event => {
     event.preventDefault();
     fetch(url)
-        .then(resp => resp.json())
-        .then(data => DBdata = data)
-        .then(() => buildTable(DBdata))
+        .then(response => {
+            if (response.ok){
+                response.json()
+                    .then(data => DBdata = data)
+                    .then(() => buildTable(DBdata))
+            }
+        })
 });
 
-// Search.addEventListener("mousedown", event => {
-//     var ID = GameID.value
-//     var data = searchTable(ID, DBdata)
-//     buildTable(data)
-// })
+function SortColumn(element){
+    var column = element.dataset.column
+    var order = element.dataset.order
+    if (order == 'desc'){
+        element.setAttribute('data-order', 'asc')
+       DBdata = DBdata.sort((a,b) => a[column] > b[column] ? 1 : -1)
+    } else {
+        element.setAttribute('data-order', 'desc')
+        DBdata = DBdata.sort((a,b) => a[column] < b[column] ? 1 : -1)
+    }
+    buildTable(DBdata)
+}
 
-// function searchTable(value, array){
-//     var filteredData = []
-//     for (var i = 0; i < array.length; i++){
-//         var ID = array[i].ID
-//         if (ID.includes(value)){
-//             filteredData.push(array[i])
-//         }
-//     }
-//     return filteredData
-// }
+function DataChecker(data, value, opositeValue){
+    if(value == opositeValue){
+        addRow(data);
+    }
+}
+
+function addRow(data){
+    let row = `<tr>
+        <td>${data.ID}</td>
+        <td>${data.DATE_STARTED}</td>
+        <td>${data.USERNAME}</td>
+        <td>${data.SCORE}</td>
+        <td>${data["Average Move Duration"]}</td>
+        <td>${data.HAS_QUARTO}</td>
+    </tr>`;
+    table.innerHTML += row;
+}
 
 function buildTable(data){
-    var table = document.getElementById("DatabaseResults")
-    for(var i = 0; i < data.length; i++){
-        var row = `<tr>
-                        <td>${data[i].ID}</td>
-                        <td>${data[i].USERNAME}</td>
-                        <td>${data[i].TIME_PLAYED}</td>
-                        <td>${data[i].HAS_QUARTO}</td>
-                    </tr>`
-        table.innerHTML += row
+    table.innerHTML = ''
+    if(GameID.value != ""){
+        for(let i = 0; i < data.length; i ++){
+            DataChecker(data[i], GameID.value, data[i].ID);
+        }
+        console.log("Checked on ID")
+    }else{
+        if(PlayerName.value != ""){
+            for(let i = 0; i < data.length; i ++){
+                DataChecker(data[i], PlayerName.value, data[i].USERNAME);
+            }
+            console.log("Checked on Player Name")
+        }else if(Win.checked){
+            for(let i = 0; i < data.length; i ++){
+                DataChecker(data[i], "Yes", data[i].HAS_QUARTO);
+            }
+            console.log("Checked on Win")
+        }else if(Lose.checked){
+            for(let i = 0; i < data.length; i ++){
+                DataChecker(data[i], "No", data[i].HAS_QUARTO);
+            }
+            console.log("Checked on Lose")
+        }else{
+            if(Score.value != ""){
+                console.log("Checked on Score")
+                if(ScoreSelect.value == "Below"){
+                    for(let i = 0; i < data.length; i++){
+                        if(data[i].SCORE <= Score.value){
+                            addRow(data[i]);
+                        }
+                    }
+                }else{
+                    for(let i = 0; i < data.length; i++){
+                        if(data[i].SCORE >= Score.value){
+                            addRow(data[i]);
+                        }
+                    }
+                }
+            }else{
+                for(let i = 0; i < data.length; i++){
+                    addRow(data[i]);
+                }
+            }
+        }
     }
 } 
