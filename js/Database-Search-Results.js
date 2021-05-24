@@ -10,15 +10,39 @@ const Search = document.getElementById("SearchButton")
 
 const th = document.querySelector("th")
 
-// const IDHead = document.getElementById("IDHead")
-// const NAMEHead = document.getElementById("NAMEHead")
-// const SCOREHead = document.getElementById("SCOREHead")
-// const RESULTHead = document.getElementById("RESULTHead")
+const IDHead = document.getElementById("IDHead")
+const NAMEHead = document.getElementById("NAMEHead")
+const SCOREHead = document.getElementById("SCOREHead")
+const RESULTHead = document.getElementById("RESULTHead")
 
-th.addEventListener("click", event => {
-    var column = th.dataset.column
-    var order = th.dataset.order
-    console.log("th was clicked", column, order)
+IDHead.addEventListener("click", event => {
+    var column = IDHead.dataset.column
+    var order = IDHead.dataset.order
+    console.log("IDHead was clicked", column, order)
+
+    if (order == 'desc'){
+       IDHead.dataset.order.
+    } else {
+        console.log("asc")
+    }
+})
+
+NAMEHead.addEventListener("click", event => {
+    var column = NAMEHead.dataset.column
+    var order = NAMEHead.dataset.order
+    console.log("NAMEHead was clicked", column, order)
+})
+
+SCOREHead.addEventListener("click", event => {
+    var column = SCOREHead.dataset.column
+    var order = SCOREHead.dataset.order
+    console.log("SCOREHead was clicked", column, order)
+})
+
+RESULTHead.addEventListener("click", event => {
+    var column = RESULTHead.dataset.column
+    var order = RESULTHead.dataset.order
+    console.log("RESULTHead was clicked", column, order)
 })
 
 Search.addEventListener("click", event => {
