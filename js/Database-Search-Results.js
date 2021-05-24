@@ -60,13 +60,21 @@ Search.addEventListener("click", event => {
 function SortColumn(element){
     var column = element.dataset.column
     var order = element.dataset.order
+    var text = element.innerHTML
+    
+    text = text.substring(0, text.length - 1)
+
     if (order == 'desc'){
         element.setAttribute('data-order', 'asc')
-       DBdata = DBdata.sort((a,b) => a[column] > b[column] ? 1 : -1)
+        DBdata = DBdata.sort((a,b) => a[column] > b[column] ? 1 : -1)
+        text += "&#x2193"
     } else {
         element.setAttribute('data-order', 'desc')
         DBdata = DBdata.sort((a,b) => a[column] < b[column] ? 1 : -1)
+        text += "&#x2191"
     }
+
+    element.innerHTML = text
     buildTable(DBdata)
 }
 
