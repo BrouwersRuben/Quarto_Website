@@ -490,7 +490,7 @@ color: #A6935B;
     border: 1px solid #ddd;
 }
   
-.form button {
+.form #SearchButton {
     padding: 10px 20px;
     font-weight: bold;
     background-color: #A6935B;
@@ -499,7 +499,7 @@ color: #A6935B;
     cursor: pointer;
 }
 
-.form button:hover {
+.form #SearchButton:hover {
     background-color: #6d613b;
 }
 
@@ -515,5 +515,5 @@ color: #A6935B;
 }
 
 .dbTable{
-    margin-top: 30px;
+    margin: 30px 0 30px;
 }

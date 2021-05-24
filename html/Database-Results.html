@@ -34,17 +34,18 @@
                 <label for="Lose">Lost</label>
                 <input type="radio" name="WinState" id="Win" value="1">
                 <label for="Win">Won</label>
-                <button id="SearchButton">Search</button>
+                <input type="submit" id="SearchButton">
             </form>
             <table class="dbTable">
-                <tr>
-                    <th>ID</th>
-                    <th>Player Name</th>
-                    <th>Score</th>
-                    <th>Game Result</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th data-column="ID" data-order="desc" id="IDHead" style="width: 5%;">ID</th>
+                        <th data-column="USERNAME" data-order="desc" id="NAMEHead" style="width: 60%;">Player Name</th>
+                        <th data-column="TIME_PLAYED" data-order="desc" id="SCOREHead" style="width: 10%;">Score</th>
+                        <th data-column="HAS_QUARTO" data-order="desc" id="RESULTHead" style="width: 25%;">Game Result</th>
+                    </tr>
+                </thead>
                 <tbody id="DatabaseResults">
-
                 </tbody>
             </table>
         </main>
