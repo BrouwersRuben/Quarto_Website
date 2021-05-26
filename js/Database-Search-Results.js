@@ -70,6 +70,12 @@ function SortColumn(element){
     showData()
 }
 
+// Bug where it does sort the table on the data filled in in the form, but only displays it after i clicked one of the table headers
+
+//Arrows the wrong way around??
+
+//Win and lose radio buttons do not work yet
+
 function showData(){
     function addRows(){
 
@@ -120,8 +126,6 @@ function showData(){
                                     return data.SCORE > Score; 
                                 case 'Below':
                                     return data.SCORE < Score;
-                                case '': 
-                                    return data.SCORE = Score;
                             }  
                         })
                     }
