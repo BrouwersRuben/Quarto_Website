@@ -62,15 +62,22 @@ RESULTHead.addEventListener("click", () => {
 
 Search.addEventListener("click", event => {
     event.preventDefault();
+    reachDatabase();
+});
+
+function reachDatabase(){
     fetch(url)
         .then(response => {
             if (response.ok){
                 response.json()
-                    .then(data => DBdata = data)
+                    .then(data => {
+                        DBdata = data.games;
+                    })
                     .then(() => buildTable(DBdata))
+                    .catch(err => { console.log(err) });
             }
         })
-});
+}
 
 function SortColumn(element){
     var column = element.dataset.column
@@ -91,10 +98,6 @@ function SortColumn(element){
 
     element.innerHTML = text
     buildTable(DBdata)
-}
-
-function SelectedColumn(){
-
 }
 
 function DataChecker(data, value, opositeValue){
