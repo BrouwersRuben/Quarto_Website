@@ -3,13 +3,7 @@ const url = '../rest/database_Results.json';
 
 const table = document.getElementById("DatabaseResults")
 
-const GameID = document.getElementById("Id")
-const PlayerName = document.getElementById("PlayerName")
-const Win = document.getElementById("Win")
-const Lose = document.getElementById("Lose")
 const Search = document.getElementById("SearchButton")
-const Score = document.getElementById("Score");
-const ScoreSelect = document.getElementById("SelectScore");
 
 const th = document.querySelector("th")
 
@@ -28,6 +22,115 @@ const AVERAGEHeadCOL = document.getElementById("AVERAGEHeadCOL")
 const RESULTHeadCOL = document.getElementById("RESULTHeadCOL")
 
 let highlightedHeader = document.getElementsByClassName("selected")
+let DBdata;
+
+Search.addEventListener("click", event => {
+    event.preventDefault();
+    reachDatabase();
+});
+
+function reachDatabase(){
+    fetch(url)
+        .then(response => {
+            if (response.ok){
+                response.json()
+                    .then(data => {
+                        DBdata = data.games;
+                    })
+                    .then(() => showData())
+                    .catch(error => { console.log(error) });
+            }
+        })
+}
+
+
+
+function nothingHere(string){
+    return !string.trim().length;
+}
+
+function SortColumn(element){
+    var column = element.dataset.column
+    var order = element.dataset.order
+    var text = element.innerHTML
+    
+    text = text.substring(0, text.length - 1)
+
+    if (order == 'desc'){
+        element.setAttribute('data-order', 'asc')
+        DBdata = DBdata.sort((a,b) => a[column] > b[column] ? 1 : -1)
+        text += "&#x2193"
+    } else {
+        element.setAttribute('data-order', 'desc')
+        DBdata = DBdata.sort((a,b) => a[column] < b[column] ? 1 : -1)
+        text += "&#x2191"
+    }
+
+    element.innerHTML = text
+    showData()
+}
+
+function showData(){
+    function addRows(){
+
+        table.innerHTML = "";
+
+        DBdata.forEach(gamePlayed => {
+            const row = `<tr>
+                            <td>${gamePlayed.ID}</td>
+                            <td>${gamePlayed.DATE_STARTED}</td>
+                            <td>${gamePlayed.USERNAME}</td>
+                            <td>${gamePlayed.SCORE}</td>
+                            <td>${gamePlayed["Average Move Duration"]}</td>
+                            <td>${gamePlayed.HAS_QUARTO}</td>
+                        </tr>`;
+        table.innerHTML += row;
+        });
+
+        const GameID = document.getElementById("Id").value
+        const PlayerName = document.getElementById("PlayerName").value
+        const Win = document.getElementById("Win").value
+        const Lose = document.getElementById("Lose").value
+        const Score = document.getElementById("Score").value
+        const ScoreSelect = document.getElementById("SelectScore").value
+
+        if (!nothingHere(GameID)){
+            DBdata = DBdata.filter(data => {
+                return data.ID == GameID;
+            })
+        } else {
+            if (!nothingHere(PlayerName)){
+                DBdata = DBdata.filter(data => {
+                    return data.USERNAME == PlayerName;
+                })
+            } else {
+                if (Win.checked){
+                    DBdata = DBdata.filter(data => {
+                        return data.HAS_QUARTO == "Yes";
+                    })
+                } else if (Lose.checked){
+                    DBdata = DBdata.filter(data => {
+                        return data.HAS_QUARTO == "No";
+                    })
+                } else {
+                    if (!nothingHere(Score)){
+                        DBdata = DBdata.filter(data => {
+                            switch(ScoreSelect){
+                                case 'Above':
+                                    return data.SCORE > Score; 
+                                case 'Below':
+                                    return data.SCORE < Score;
+                                case '': 
+                                    return data.SCORE = Score;
+                            }  
+                        })
+                    }
+                }
+            }       
+        }
+    }
+    addRows();
+}
 
 IDHead.addEventListener("click", () => {
     SortColumn(IDHead)
@@ -60,52 +163,6 @@ RESULTHead.addEventListener("click", () => {
     highlightHeader(RESULTHeadCOL)
 })
 
-Search.addEventListener("click", event => {
-    event.preventDefault();
-    reachDatabase();
-});
-
-function reachDatabase(){
-    fetch(url)
-        .then(response => {
-            if (response.ok){
-                response.json()
-                    .then(data => {
-                        DBdata = data.games;
-                    })
-                    .then(() => buildTable(DBdata))
-                    .catch(err => { console.log(err) });
-            }
-        })
-}
-
-function SortColumn(element){
-    var column = element.dataset.column
-    var order = element.dataset.order
-    var text = element.innerHTML
-    
-    text = text.substring(0, text.length - 1)
-
-    if (order == 'desc'){
-        element.setAttribute('data-order', 'asc')
-        DBdata = DBdata.sort((a,b) => a[column] > b[column] ? 1 : -1)
-        text += "&#x2193"
-    } else {
-        element.setAttribute('data-order', 'desc')
-        DBdata = DBdata.sort((a,b) => a[column] < b[column] ? 1 : -1)
-        text += "&#x2191"
-    }
-
-    element.innerHTML = text
-    buildTable(DBdata)
-}
-
-function DataChecker(data, value, opositeValue){
-    if(value == opositeValue){
-        addRow(data);
-    }
-}
-
 function highlightHeader(element){
     for (let i = 0; i < highlightedHeader.length; i++){
         highlightedHeader[i].className = "";
@@ -113,64 +170,3 @@ function highlightHeader(element){
     element.setAttribute("class", "selected")
 }
 
-function addRow(data){
-    let row = `<tr>
-        <td>${data.ID}</td>
-        <td>${data.DATE_STARTED}</td>
-        <td>${data.USERNAME}</td>
-        <td>${data.SCORE}</td>
-        <td>${data["Average Move Duration"]}</td>
-        <td>${data.HAS_QUARTO}</td>
-    </tr>`;
-    table.innerHTML += row;
-}
-
-//TODO: use a higher order function to do this.
-
-function buildTable(data){
-    table.innerHTML = ''
-    if(GameID.value != ""){
-        for(let i = 0; i < data.length; i ++){
-            DataChecker(data[i], GameID.value, data[i].ID);
-        }
-        console.log("Checked on ID")
-    }else{
-        if(PlayerName.value != ""){
-            for(let i = 0; i < data.length; i ++){
-                DataChecker(data[i], PlayerName.value, data[i].USERNAME);
-            }
-            console.log("Checked on Player Name")
-        }else if(Win.checked){
-            for(let i = 0; i < data.length; i ++){
-                DataChecker(data[i], "Yes", data[i].HAS_QUARTO);
-            }
-            console.log("Checked on Win")
-        }else if(Lose.checked){
-            for(let i = 0; i < data.length; i ++){
-                DataChecker(data[i], "No", data[i].HAS_QUARTO);
-            }
-            console.log("Checked on Lose")
-        }else{
-            if(Score.value != ""){
-                console.log("Checked on Score")
-                if(ScoreSelect.value == "Below"){
-                    for(let i = 0; i < data.length; i++){
-                        if(data[i].SCORE <= Score.value){
-                            addRow(data[i]);
-                        }
-                    }
-                }else{
-                    for(let i = 0; i < data.length; i++){
-                        if(data[i].SCORE >= Score.value){
-                            addRow(data[i]);
-                        }
-                    }
-                }
-            }else{
-                for(let i = 0; i < data.length; i++){
-                    addRow(data[i]);
-                }
-            }
-        }
-    }
-} 
