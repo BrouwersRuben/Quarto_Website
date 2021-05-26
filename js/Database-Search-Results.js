@@ -27,37 +27,37 @@ const SCOREHeadCOL = document.getElementById("SCOREHeadCOL")
 const AVERAGEHeadCOL = document.getElementById("AVERAGEHeadCOL")
 const RESULTHeadCOL = document.getElementById("RESULTHeadCOL")
 
-//TODO: Highlight and reset columns when going to another one...
+let highlightedHeader = document.getElementsByClassName("selected")
 
 IDHead.addEventListener("click", () => {
     SortColumn(IDHead)
-    IDHeadCOL.setAttribute("class", "selected")
+    highlightHeader(IDHeadCOL)
 })
 
 Date.addEventListener("click", () => {
     SortColumn(Date)
-    DateCOL.setAttribute("class", "selected")
+    highlightHeader(DateCOL)
 })
 
 NAMEHead.addEventListener("click", () => {
     SortColumn(NAMEHead)
-    NAMEHeadCOL.setAttribute("class", "selected")
+    highlightHeader(NAMEHeadCOL)
     
 })
 
 SCOREHead.addEventListener("click", () => {
     SortColumn(SCOREHead)
-    SCOREHeadCOL.setAttribute("class", "selected")
+    highlightHeader(SCOREHeadCOL)
 })
 
 AVERAGEHead.addEventListener("click", () => {
     SortColumn(AVERAGEHead)
-    AVERAGEHeadCOL.setAttribute("class", "selected")
+    highlightHeader(AVERAGEHeadCOL)
 })
 
 RESULTHead.addEventListener("click", () => {
     SortColumn(RESULTHead)
-    RESULTHeadCOL.setAttribute("class", "selected")
+    highlightHeader(RESULTHeadCOL)
 })
 
 Search.addEventListener("click", event => {
@@ -101,6 +101,13 @@ function DataChecker(data, value, opositeValue){
     if(value == opositeValue){
         addRow(data);
     }
+}
+
+function highlightHeader(element){
+    for (let i = 0; i < highlightedHeader.length; i++){
+        highlightedHeader[i].className = "";
+    }
+    element.setAttribute("class", "selected")
 }
 
 function addRow(data){
