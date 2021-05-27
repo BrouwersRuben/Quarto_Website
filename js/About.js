@@ -1,15 +1,15 @@
+
 const ImageRuben = document.getElementById("RubenPic");
 const ImageRodzers = document.getElementById("RodzersPic");
 
-window.onload = changePictures();
+// Credits for the photoshop edits go to Ruben's amazing girlfriend
 
-function changePictures(){
-    document.getElementById("TITLE").addEventListener("click", () =>{
-        ImageRuben.setAttribute("src", "../media/RippedRuben.png")
-        ImageRodzers.setAttribute("src", "../media/RippedRodžers.png")
-    })
-    document.getElementById("EXPL").addEventListener("click", () =>{
-        ImageRuben.setAttribute("src", "../media/Ruben.png")
-        ImageRodzers.setAttribute("src", "../media/Rodžers.png")
-    })
-}
+document.getElementById("TITLE").addEventListener("click", () =>{
+    ImageRuben.setAttribute("src", "../media/RippedRuben.png")
+    ImageRodzers.setAttribute("src", "../media/RippedRodžers.png")
+})
+
+document.getElementById("EXPL").addEventListener("click", () =>{
+    ImageRuben.setAttribute("src", "../media/Ruben.png")
+    ImageRodzers.setAttribute("src", "../media/Rodžers.png")
+})
