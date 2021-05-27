@@ -358,7 +358,7 @@ a.link:hover{
     width: auto;
 }
 
-#Headshot {
+.Headshot {
     width: 100%;
 }
 
@@ -415,7 +415,7 @@ a.tileLink{
     display: table;
 }
 
-#TileImage {
+.TileImage {
     width: 100%;
 }
 
