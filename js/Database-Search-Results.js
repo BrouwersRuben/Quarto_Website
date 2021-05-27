@@ -62,33 +62,6 @@ function SortColumn(element){
 //Arrows the wrong way around??
 
 function showData(){
-    function addTableHeader(){
-        table.innerHTML = ""
-        const tableHeader =`<colgroup>
-                                <col id="IDHeadCOL" class="">
-                                <col id="DATAHeadCOL" class="">
-                                <col id="NAMEHeadCOL" class="">
-                                <col id="SCOREHeadCOL" class="">
-                                <col id="AVERAGEHeadCOL" class="">
-                                <col id="RESULTHeadCOL" class="">
-                            </colgroup>
-                            <thead>
-                                <tr>
-                                    <th data-column="ID" data-order="desc" id="IDHead" >ID &#x2193</th>
-                                    <th data-column="DATE_STARTED" data-order="desc" id="DATAHead">Date &#x2193</th>
-                                    <th data-column="USERNAME" data-order="desc" id="NAMEHead">Player Name &#x2193</th>
-                                    <th data-column="SCORE" data-order="desc" id="SCOREHead">Score &#x2193</th>
-                                    <th data-column="Average Move Duration" data-order="desc" id="AVERAGEHead">Average move duration &#x2193</th>
-                                    <th data-column="HAS_QUARTO" data-order="desc" id="RESULTHead">Has Quarto &#x2193</th>
-                                </tr>
-                            </thead>
-                            <tbody id="DatabaseResults">
-                            </tbody>`
-        table.innerHTML += tableHeader;
-    }
-
-    addTableHeader();
-
     function addRows(){   
         tableBody.innerHTML = "";
 
@@ -132,7 +105,7 @@ function showData(){
                 } else {
                     if (!nothingHere(Score.value)){
                         DBdata = DBdata.filter(data => {
-                            switch(ScoreSelect){
+                            switch(ScoreSelect.value){
                                 case 'Above':
                                     return data.SCORE > Score.value; 
                                 case 'Below':

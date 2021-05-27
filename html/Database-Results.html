@@ -43,6 +43,26 @@
                 <input type="submit" id="SearchButton">
             </form>
             <table class="dbTable" id="dbTable">
+                <colgroup>
+                    <col id="IDHeadCOL" class="">
+                    <col id="DATAHeadCOL" class="">
+                    <col id="NAMEHeadCOL" class="">
+                    <col id="SCOREHeadCOL" class="">
+                    <col id="AVERAGEHeadCOL" class="">
+                    <col id="RESULTHeadCOL" class="">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th data-column="ID" data-order="desc" id="IDHead" >ID &#x2193</th>
+                        <th data-column="DATE_STARTED" data-order="desc" id="DATAHead">Date &#x2193</th>
+                        <th data-column="USERNAME" data-order="desc" id="NAMEHead">Player Name &#x2193</th>
+                        <th data-column="SCORE" data-order="desc" id="SCOREHead">Score &#x2193</th>
+                        <th data-column="Average Move Duration" data-order="desc" id="AVERAGEHead">Average move duration &#x2193</th>
+                        <th data-column="HAS_QUARTO" data-order="desc" id="RESULTHead">Has Quarto &#x2193</th>
+                    </tr>
+                </thead>
+                <tbody id="DatabaseResults">
+                </tbody>
             </table>
         </main>
     </div>
