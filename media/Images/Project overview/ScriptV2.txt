@@ -1,0 +1,46 @@
+#!/bin/bash
+# Integrity check bash script
+# Made by Ruben Brouwers V2 (cron)
+
+newestVersion=$(ls -p -t /web/download/Game/*.jar | head -n1)
+
+d=`date +%m-%d-%Y`
+filename="Integrity_HASH_Check.txt"
+
+logPATH=~/IntegrityCheck/log/logs.txt
+errorPATH=~/IntegrityCheck/log/error.txt
+
+if [ -f /web/download/IntCheck/$filename ];
+then
+        rm /web/download/IntCheck/$filename
+fi
+
+echo "$d: CheckSum Made" >> $logPATH
+
+echo "md5: " >> /web/download/IntCheck/$filename 2>> $errorPATH
+md5sum $newestVersion >> /web/download/IntCheck/$filename 2>> $errorPATH
+echo "sha256: " >> /web/download/IntCheck/$filename 2>> $errorPATH
+sha256sum $newestVersion >> /web/download/IntCheck/$filename 2>> $errorPATH
+echo "sha512: " >> /web/download/IntCheck/$filename 2>> $errorPATH
+sha512sum $newestVersion >> /web/download/IntCheck/$filename 2>> $errorPATH
+
+echo " " >> /web/download/IntCheck/$filename 2>> $errorPATH
+echo $d >> /web/download/IntCheck/$filename 2>> $errorPATH
+echo " " >> /web/download/IntCheck/$filename 2>> $errorPATH
+echo "To check the integrity of the file you just downloaded, you can always do a" >> /web/download/IntCheck/$filename 2>> $errorPATH
+echo "hash check." >> /web/download/IntCheck/$filename 2>> $errorPATH
+echo " " >> /web/download/IntCheck/$filename 2>> $errorPATH
+echo "On Windows you can do it like this: " >> /web/download/IntCheck//$filename 2>> $errorPATH
+echo "certutil -hashfile <FILE> <HASHTYPE>" >> /web/download/IntCheck/$filename 2>> $errorPATH
+echo "#HASHTYPE = MD2 MD4 MD5 SHA1 SHA256 SHA384 SHA512" >> /web/download/IntCheck/$filename 2>> $errorPATH
+echo " " >> /web/download/IntCheck/$filename 2>> $errorPATH
+echo "On Linux you can do it like this: " >> /web/download/IntCheck/$filename 2>> $errorPATH
+echo "md5sum <FILE>" >> /web/download/IntCheck/$filename 2>> $errorPATH
+echo "sha256sum <FILE>" >> /web/download/IntCheck/$filename 2>> $errorPATH
+echo "sha512sum <FILE>" >> /web/download/IntCheck/$filename 2>> $errorPATH
+echo " " >> /web/download/IntCheck/$filename 2>> $errorPATH
+echo "Now you just perform the hash check on your computer, and compare the outcomes." >> /web/download/IntCheck/$filename 2>> $errorPATH
+echo "These Should be thesame." >> /web/download/IntCheck/$filename 2>> $errorPATH
+
+# Cron schedule
+# 0 1 * * * ~/IntegrityCheck/Check.sh

@@ -510,3 +510,11 @@ color: #A6935B;
 .selected{
     background-color: #dbcda8;
 }
+
+/* Thank you for downloading page css rules */
+.ThankYou > img {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 35px;
+    display: block;
+}
