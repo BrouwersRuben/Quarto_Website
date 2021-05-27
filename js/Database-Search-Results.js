@@ -11,11 +11,13 @@ const th = document.querySelector("th")
 let highlightedHeader = document.getElementsByClassName("selected")
 let DBdata;
 
+// Event handler for the submit button
 Search.addEventListener("click", event => {
     event.preventDefault();
     reachDatabase();
 });
 
+// Function that retrieves the data from the JSON file
 function reachDatabase(){
     fetch(url)
         .then(response => {
@@ -31,11 +33,12 @@ function reachDatabase(){
 }
 
 
-
+// Function that checks if there is something present inside of the specifield field
 function nothingHere(string){
     return !string.trim().length;
 }
 
+// Function that sorts the columns on their values
 function SortColumn(element){
     var column = element.dataset.column
     var order = element.dataset.order
@@ -57,10 +60,19 @@ function SortColumn(element){
     showData()
 }
 
-// Bug where it does sort the tableBody on the data filled in in the form, but only displays it after i clicked one of the tableBody headers
+// Function that highlights the column by clicking on the header
+function highlightHeader(element){
+    for (let column of highlightedHeader){
+        column.className = ""
+    }
+    element.setAttribute("class", "selected")
+}
 
-//Arrows the wrong way around??
+// TODO: Bug where it does sort the tableBody on the data filled in in the form, but only displays it after i clicked one of the tableBody headers
 
+// TODO: Arrows the wrong way around??
+
+// Function that loads in the data inside of the HTML
 function showData(){
     function addRows(){   
         tableBody.innerHTML = "";
@@ -84,6 +96,7 @@ function showData(){
         const Score = document.getElementById("Score")
         const ScoreSelect = document.getElementById("SelectScore")
 
+        // Filters the data on the values filled in into the form
         if (!nothingHere(GameID.value)){
             DBdata = DBdata.filter(data => {
                 return data.ID == GameID.value;
@@ -134,6 +147,9 @@ const SCOREHeadCOL = document.getElementById("SCOREHeadCOL")
 const AVERAGEHeadCOL = document.getElementById("AVERAGEHeadCOL")
 const RESULTHeadCOL = document.getElementById("RESULTHeadCOL")
 
+// Event handlers that handle the clicking of the column headers,
+// there is an other way to do it with the queryselector, but I could 
+// not get that to work so i used this workaround
 IDHead.addEventListener("click", () => {
     SortColumn(IDHead)
     highlightHeader(IDHeadCOL)
@@ -164,11 +180,3 @@ RESULTHead.addEventListener("click", () => {
     SortColumn(RESULTHead)
     highlightHeader(RESULTHeadCOL)
 })
-
-function highlightHeader(element){
-    for (let i = 0; i < highlightedHeader.length; i++){
-        highlightedHeader[i].className = "";
-    }
-    element.setAttribute("class", "selected")
-}
-
