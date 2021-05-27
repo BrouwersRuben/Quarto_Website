@@ -74,8 +74,6 @@ function SortColumn(element){
 
 //Arrows the wrong way around??
 
-//Win and lose radio buttons do not work yet
-
 function showData(){
     function addRows(){
 
@@ -93,21 +91,21 @@ function showData(){
         table.innerHTML += row;
         });
 
-        const GameID = document.getElementById("Id").value
-        const PlayerName = document.getElementById("PlayerName").value
-        const Win = document.getElementById("Win").value
-        const Lose = document.getElementById("Lose").value
-        const Score = document.getElementById("Score").value
-        const ScoreSelect = document.getElementById("SelectScore").value
+        const GameID = document.getElementById("Id")
+        const PlayerName = document.getElementById("PlayerName")
+        const Win = document.getElementById("Win")
+        const Lose = document.getElementById("Lose")
+        const Score = document.getElementById("Score")
+        const ScoreSelect = document.getElementById("SelectScore")
 
-        if (!nothingHere(GameID)){
+        if (!nothingHere(GameID.value)){
             DBdata = DBdata.filter(data => {
-                return data.ID == GameID;
+                return data.ID == GameID.value;
             })
         } else {
-            if (!nothingHere(PlayerName)){
+            if (!nothingHere(PlayerName.value)){
                 DBdata = DBdata.filter(data => {
-                    return data.USERNAME == PlayerName;
+                    return data.USERNAME == PlayerName.value;
                 })
             } else {
                 if (Win.checked){
@@ -119,13 +117,13 @@ function showData(){
                         return data.HAS_QUARTO == "No";
                     })
                 } else {
-                    if (!nothingHere(Score)){
+                    if (!nothingHere(Score.value)){
                         DBdata = DBdata.filter(data => {
                             switch(ScoreSelect){
                                 case 'Above':
-                                    return data.SCORE > Score; 
+                                    return data.SCORE > Score.value; 
                                 case 'Below':
-                                    return data.SCORE < Score;
+                                    return data.SCORE < Score.value;
                             }  
                         })
                     }
