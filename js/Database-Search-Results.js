@@ -74,6 +74,8 @@ function highlightHeader(element){
 
 // Function that loads in the data inside of the HTML
 function showData(){
+    // TODO: Refactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed. [+9 locations]
+    // TODO: What is this
     function addRows(){   
         tableBody.innerHTML = "";
 
