@@ -1,25 +1,12 @@
 // const url = 'https://team7.2020-21.acs.kdg.be/rest/database_Results.json'
 const url = '../rest/database_Results.json';
 
-const table = document.getElementById("DatabaseResults")
+const table = document.getElementById("dbTable")
+const tableBody = document.getElementById("DatabaseResults")
 
 const Search = document.getElementById("SearchButton")
 
 const th = document.querySelector("th")
-
-const IDHead = document.getElementById("IDHead")
-const Date = document.getElementById("DATAHead")
-const NAMEHead = document.getElementById("NAMEHead")
-const SCOREHead = document.getElementById("SCOREHead")
-const AVERAGEHead = document.getElementById("AVERAGEHead")
-const RESULTHead = document.getElementById("RESULTHead")
-
-const IDHeadCOL = document.getElementById("IDHeadCOL")
-const DateCOL = document.getElementById("DATAHeadCOL")
-const NAMEHeadCOL = document.getElementById("NAMEHeadCOL")
-const SCOREHeadCOL = document.getElementById("SCOREHeadCOL")
-const AVERAGEHeadCOL = document.getElementById("AVERAGEHeadCOL")
-const RESULTHeadCOL = document.getElementById("RESULTHeadCOL")
 
 let highlightedHeader = document.getElementsByClassName("selected")
 let DBdata;
@@ -70,25 +57,51 @@ function SortColumn(element){
     showData()
 }
 
-// Bug where it does sort the table on the data filled in in the form, but only displays it after i clicked one of the table headers
+// Bug where it does sort the tableBody on the data filled in in the form, but only displays it after i clicked one of the tableBody headers
 
 //Arrows the wrong way around??
 
 function showData(){
-    function addRows(){
+    function addTableHeader(){
+        table.innerHTML = ""
+        const tableHeader =`<colgroup>
+                                <col id="IDHeadCOL" class="">
+                                <col id="DATAHeadCOL" class="">
+                                <col id="NAMEHeadCOL" class="">
+                                <col id="SCOREHeadCOL" class="">
+                                <col id="AVERAGEHeadCOL" class="">
+                                <col id="RESULTHeadCOL" class="">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th data-column="ID" data-order="desc" id="IDHead" >ID &#x2193</th>
+                                    <th data-column="DATE_STARTED" data-order="desc" id="DATAHead">Date &#x2193</th>
+                                    <th data-column="USERNAME" data-order="desc" id="NAMEHead">Player Name &#x2193</th>
+                                    <th data-column="SCORE" data-order="desc" id="SCOREHead">Score &#x2193</th>
+                                    <th data-column="Average Move Duration" data-order="desc" id="AVERAGEHead">Average move duration &#x2193</th>
+                                    <th data-column="HAS_QUARTO" data-order="desc" id="RESULTHead">Has Quarto &#x2193</th>
+                                </tr>
+                            </thead>
+                            <tbody id="DatabaseResults">
+                            </tbody>`
+        table.innerHTML += tableHeader;
+    }
 
-        table.innerHTML = "";
+    addTableHeader();
 
-        DBdata.forEach(gamePlayed => {
+    function addRows(){   
+        tableBody.innerHTML = "";
+
+        DBdata.forEach(rowData => {
             const row = `<tr>
-                            <td>${gamePlayed.ID}</td>
-                            <td>${gamePlayed.DATE_STARTED}</td>
-                            <td>${gamePlayed.USERNAME}</td>
-                            <td>${gamePlayed.SCORE}</td>
-                            <td>${gamePlayed["Average Move Duration"]}</td>
-                            <td>${gamePlayed.HAS_QUARTO}</td>
+                            <td>${rowData.ID}</td>
+                            <td>${rowData.DATE_STARTED}</td>
+                            <td>${rowData.USERNAME}</td>
+                            <td>${rowData.SCORE}</td>
+                            <td>${rowData["Average Move Duration"]}</td>
+                            <td>${rowData.HAS_QUARTO}</td>
                         </tr>`;
-        table.innerHTML += row;
+        tableBody.innerHTML += row;
         });
 
         const GameID = document.getElementById("Id")
@@ -133,6 +146,20 @@ function showData(){
     }
     addRows();
 }
+
+const IDHead = document.getElementById("IDHead")
+const Date = document.getElementById("DATAHead")
+const NAMEHead = document.getElementById("NAMEHead")
+const SCOREHead = document.getElementById("SCOREHead")
+const AVERAGEHead = document.getElementById("AVERAGEHead")
+const RESULTHead = document.getElementById("RESULTHead")
+
+const IDHeadCOL = document.getElementById("IDHeadCOL")
+const DateCOL = document.getElementById("DATAHeadCOL")
+const NAMEHeadCOL = document.getElementById("NAMEHeadCOL")
+const SCOREHeadCOL = document.getElementById("SCOREHeadCOL")
+const AVERAGEHeadCOL = document.getElementById("AVERAGEHeadCOL")
+const RESULTHeadCOL = document.getElementById("RESULTHeadCOL")
 
 IDHead.addEventListener("click", () => {
     SortColumn(IDHead)
