@@ -513,6 +513,11 @@ color: #A6935B;
     margin: 30px 0 30px;
 }
 
+thead {
+    background-color: #A6935B;
+    color: white;
+}
+
 .selected{
     background-color: #dbcda8;
 }
