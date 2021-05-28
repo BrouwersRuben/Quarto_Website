@@ -318,6 +318,14 @@ a.link:hover{
     justify-content: center;
 }
 
+@media screen and (max-width: 640px) {
+    .logosRow {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
 .logosRow > img{
     width: 200px;
 }
@@ -501,6 +509,11 @@ color: #A6935B;
     margin-bottom: 20px;
 }
 
+.video {
+    display: flex;
+    justify-content: center;
+}
+
 /* These following lines are for the Database result page */
 
 .form{
@@ -510,19 +523,19 @@ color: #A6935B;
 }
 
 .form label{
-    margin: 5px 10px 5px 0;
+    margin: 5px 0px 5px 0;
 }
 
 .form input {
     vertical-align: middle;
-    margin: 5px 10px 5px 0;
+    margin: 5px 0px 5px 0;
     padding: 10px;
     border: 1px solid #ddd;
 }
   
 .button {
     margin: 15px;
-    padding: 10px 20px;
+    padding: 10px 10px;
     font-weight: bold;
     background-color: #A6935B;
     border: 1px solid #000000;
