@@ -49,7 +49,7 @@ header {
     flex-wrap: wrap;
 }
 
-.Logo {
+.logo {
     height: 120px;
     display: block;
     margin: 60px auto 10px;
@@ -128,7 +128,7 @@ a.nav:hover {
 
 /*These following lines are mainly for the landing page of the website*/
 
-.Banner > img {
+.banner > img {
     width: 100%;
     max-width: 700px;
     border: 1px solid black;
@@ -136,19 +136,19 @@ a.nav:hover {
     display: block;
 }
 
-.Intro1 {
+.intro1 {
     margin: 10px 0;
 }
 
-.IntroP1 {
+.introP1 {
     text-align: right;
 }
 
-.Intro1 > p {
+.intro1 > p {
     margin: 15px 10px;
 }
 
-a.QuartoBoardGame {
+a.quartoBoardGame {
     margin: 20px 0;
     clear: both;
     display: flex;
@@ -161,7 +161,7 @@ a.QuartoBoardGame {
     border: #A6935B solid 1px;
 }
 
-a.QuartoBoardGame:hover {
+a.quartoBoardGame:hover {
     margin: 20px 0;
     clear: both;
     display: flex;
@@ -174,7 +174,7 @@ a.QuartoBoardGame:hover {
     border: #A6935B solid 1px;
 }
 
-a.DownloadIndexPage{
+a.downloadIndexPage{
     margin: 20px 0;
     clear: both;
     display: flex;
@@ -187,7 +187,7 @@ a.DownloadIndexPage{
     border: #000000 solid 1px;
 }
 
-a.DownloadIndexPage:hover{
+a.downloadIndexPage:hover{
     margin: 20px 0;
     clear: both;
     display: flex;
@@ -220,12 +220,12 @@ a.DownloadIndexPage:hover{
     transition: transform 0.2s ease-in-out;
 }
 
-.Intro2 > p {
+.intro2 > p {
     margin: 10px;
     text-align: center;
 }
 
-.GamePlay {
+.gamePlay {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -233,11 +233,11 @@ a.DownloadIndexPage:hover{
     margin: 20px auto;
 }
 
-.GamePlay > h3 {
+.gamePlay > h3 {
     margin-bottom: 20px;
 }
 
-.GamePlay > iframe {
+.gamePlay > iframe {
     border: 1px solid black;
 }
 
@@ -247,14 +247,14 @@ align correctly. There are other ways to do this, but because this is something 
 lesson, I thought it would be best to also implement it in my website.
  */
 
-.Screenshots {
+.screenshots {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin: 7px;
 }
 
-.Screenshots > img {
+.screenshots > img {
     margin: 15px;
     width: 100%;
     max-width: 450px;
@@ -312,6 +312,16 @@ a.link:hover{
     }
 }
 
+.logosRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.logosRow > img{
+    width: 200px;
+}
+
 .container {
     padding: 0 20px;   
 }
@@ -345,7 +355,7 @@ a.link:hover{
     background-color: #6d613b;
 }
 
-.LeftAlign{
+.leftAlign{
     margin: 0 10px 20px 0;
     padding: 0 20px;
     float: left;
@@ -353,7 +363,7 @@ a.link:hover{
     width: auto;
 }
 
-.RightAlign{
+.rightAlign{
     margin: 0 10px 20px 0;
     padding: 0 20px;
     float: right;
@@ -361,7 +371,7 @@ a.link:hover{
     width: auto;
 }
 
-.Headshot {
+.headshot {
     width: 100%;
 }
 
@@ -374,9 +384,21 @@ h4{
     margin: 20px;
 }
 
-.WhoDidWhatPARENT{
+.whoDidWhatPARENT{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+}
+
+@media screen and (max-width: 640px) {
+    .whoDidWhatPARENT{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.developmentPoints{
+    margin: 30px;
 }
 
 .milestones{
@@ -423,7 +445,7 @@ a.tileLink{
     display: table;
 }
 
-.TileImage {
+.tileImage {
     width: 100%;
 }
 
@@ -468,7 +490,7 @@ text-decoration: none;
 color: #A6935B;
 }
 
-.AlignCenter{
+.alignCenter{
     display: block;
     margin: 0px auto;
     width: 100%;
@@ -527,7 +549,7 @@ thead {
 
 /* Thank you for downloading page css rules */
 
-.ThankYou > img {
+.thankYou > img {
     width: 100%;
     max-width: 700px;
     margin: 0 auto 35px;

@@ -1,7 +1,7 @@
 // const url = 'https://team7.2020-21.acs.kdg.be/rest/database_Results.json'
 const url = '../rest/database_Results.json';
 
-const table = document.getElementById("dbTable")
+const table = document.getElementById("DBTable")
 const tableBody = document.getElementById("DatabaseResults")
 
 const search = document.getElementById("SearchButton")
@@ -14,7 +14,6 @@ let highlightedHeader = document.getElementsByClassName("selected")
 let DBdata;
 
 // Event handler for the submit button
-//TODO: Make this a button, not a submit
 search.addEventListener("click", event => {
     event.preventDefault();
     reachDatabase();
@@ -82,42 +81,42 @@ function highlightHeader(element){
 
 // Function that loads in the data inside of the HTML
 function showData(){
-    const GameID = document.getElementById("Id")
-    const PlayerName = document.getElementById("PlayerName")
-    const Win = document.getElementById("Win")
-    const Lose = document.getElementById("Lose")
-    const Score = document.getElementById("Score")
-    const ScoreSelect = document.getElementById("SelectScore")
+    const gameID = document.getElementById("Id")
+    const playerName = document.getElementById("PlayerName")
+    const win = document.getElementById("Win")
+    const lose = document.getElementById("Lose")
+    const score = document.getElementById("Score")
+    const scoreSelect = document.getElementById("SelectScore")
 
     tableBody.innerHTML = "";
 
     // Filters the data on the values filled in into the form
-    if (!nothingHere(GameID.value)){
+    if (!nothingHere(gameID.value)){
         DBdata = DBdata.filter(data => {
-            return data.ID == GameID.value;
+            return data.ID == gameID.value;
         })
     } else {
-        if (!nothingHere(PlayerName.value)){
+        if (!nothingHere(playerName.value)){
             DBdata = DBdata.filter(data => {
-                return data.USERNAME == PlayerName.value;
+                return data.USERNAME == playerName.value;
             })
         } else {
-            if (Win.checked){
+            if (win.checked){
                 DBdata = DBdata.filter(data => {
-                    return data.HAS_QUARTO == "Yes";
+                    return data.HAS_QUARTO == "YES";
                 })
-            } else if (Lose.checked){
+            } else if (lose.checked){
                 DBdata = DBdata.filter(data => {
-                    return data.HAS_QUARTO == "No";
+                    return data.HAS_QUARTO == "NO";
                 })
             } else {
-                if (!nothingHere(Score.value)){
+                if (!nothingHere(score.value)){
                     DBdata = DBdata.filter(data => {
-                        switch(ScoreSelect.value){
+                        switch(scoreSelect.value){
                             case 'Above':
-                                return data.SCORE > Score.value; 
+                                return data.SCORE > score.value; 
                             case 'Below':
-                                return data.SCORE < Score.value;
+                                return data.SCORE < score.value;
                         }  
                     })
                 }
@@ -140,7 +139,7 @@ function showData(){
 }
 
 const IDHead = document.getElementById("IDHead")
-const Date = document.getElementById("DATAHead")
+const DATE = document.getElementById("DATAHead")
 const NAMEHead = document.getElementById("NAMEHead")
 const SCOREHead = document.getElementById("SCOREHead")
 const AVERAGEHead = document.getElementById("AVERAGEHead")
@@ -161,8 +160,8 @@ IDHead.addEventListener("click", () => {
     highlightHeader(IDHeadCOL)
 })
 
-Date.addEventListener("click", () => {
-    SortColumn(Date)
+DATE.addEventListener("click", () => {
+    SortColumn(DATE)
     highlightHeader(DateCOL)
 })
 
