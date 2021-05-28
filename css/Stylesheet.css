@@ -371,6 +371,11 @@ h4{
     margin: 20px;
 }
 
+.WhoDidWhatPARENT{
+    display: flex;
+    flex-direction: row;
+}
+
 .milestones{
     text-decoration: none;
 }
@@ -491,6 +496,7 @@ color: #A6935B;
 }
   
 .form #SearchButton {
+    margin: 15px;
     padding: 10px 20px;
     font-weight: bold;
     background-color: #A6935B;
@@ -512,6 +518,7 @@ color: #A6935B;
 }
 
 /* Thank you for downloading page css rules */
+
 .ThankYou > img {
     width: 100%;
     max-width: 700px;

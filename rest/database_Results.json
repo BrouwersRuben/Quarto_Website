@@ -1,81 +1,169 @@
 {
   "games": [
-    {
-      "ID": 3,
-      "USERNAME": "who?",
-      "DATE_STARTED": "2021-05-22 17:08:17.140000",
-      "SCORE": 7406,
-      "TURNS": 5,
-      "TIME_PLAYED": 7.41,
-      "GAME_DIFFICULTY": 0,
-      "HAS_QUARTO": "No",
-      "Average Move Duration": "  1.48"
-    },
-    {
-      "ID": 4,
-      "USERNAME": "dummy",
-      "DATE_STARTED": "2021-05-22 17:09:45.185000",
-      "SCORE": 4973,
-      "TURNS": 3,
-      "TIME_PLAYED": 4.97,
-      "GAME_DIFFICULTY": 0,
-      "HAS_QUARTO": "No",
-      "Average Move Duration": "  1.66"
-    },
-    {
-      "ID": 1,
-      "USERNAME": "souljaboytellem",
-      "DATE_STARTED": "2021-05-22 17:02:54.870000",
-      "SCORE": 4791,
-      "TURNS": 4,
-      "TIME_PLAYED": 4.79,
-      "GAME_DIFFICULTY": 0,
-      "HAS_QUARTO": "No",
-      "Average Move Duration": "  1.20"
-    },
-    {
-      "ID": 5,
-      "USERNAME": "whoopty",
-      "DATE_STARTED": "2021-05-22 17:12:21.420000",
-      "SCORE": 5463,
-      "TURNS": 3,
-      "TIME_PLAYED": 5.46,
-      "GAME_DIFFICULTY": 0,
-      "HAS_QUARTO": "No",
-      "Average Move Duration": "  1.82"
-    },
-    {
-      "ID": 6,
-      "USERNAME": "deez",
-      "DATE_STARTED": "2021-05-22 17:15:01.396000",
-      "SCORE": 7837,
-      "TURNS": 4,
-      "TIME_PLAYED": 7.84,
-      "GAME_DIFFICULTY": 0,
-      "HAS_QUARTO": "Yes",
-      "Average Move Duration": "  1.96"
-    },
-    {
-      "ID": 7,
-      "USERNAME": "loser",
-      "DATE_STARTED": "2021-05-22 17:15:34.429000",
-      "SCORE": 26760,
-      "TURNS": 7,
-      "TIME_PLAYED": 26.76,
-      "GAME_DIFFICULTY": 0,
-      "HAS_QUARTO": "Yes",
-      "Average Move Duration": "  3.82"
-    },
-    {
-      "ID": 2,
-      "USERNAME": "drain",
-      "DATE_STARTED": "2021-05-22 17:03:30.002000",
-      "SCORE": 10957,
-      "TURNS": 6,
-      "TIME_PLAYED": 10.96,
-      "GAME_DIFFICULTY": 0,
-      "HAS_QUARTO": "No",
-      "Average Move Duration": "  1.83"
-    }
-  ]
+  {
+    "ID": 4,
+    "USERNAME": "Ruben",
+    "DATE_STARTED": "2021-05-28 10:23:17.118000",
+    "SCORE": 0,
+    "TURNS": 4,
+    "TIME_PLAYED": 5.48,
+    "GAME_DIFFICULTY": 0,
+    "HAS_QUARTO": "NO",
+    "Average Move Duration": "  1.37"
+  },
+  {
+    "ID": 8,
+    "USERNAME": "howboutdat",
+    "DATE_STARTED": "2021-05-28 10:37:54.336000",
+    "SCORE": 0,
+    "TURNS": 5,
+    "TIME_PLAYED": 22.25,
+    "GAME_DIFFICULTY": 0,
+    "HAS_QUARTO": "NO",
+    "Average Move Duration": "  4.45"
+  },
+  {
+    "ID": 12,
+    "USERNAME": "game",
+    "DATE_STARTED": "2021-05-28 10:52:12.120000",
+    "SCORE": 49511,
+    "TURNS": 4,
+    "TIME_PLAYED": 9.80,
+    "GAME_DIFFICULTY": 0,
+    "HAS_QUARTO": "YES",
+    "Average Move Duration": "  2.45"
+  },
+  {
+    "ID": 13,
+    "USERNAME": "okoko",
+    "DATE_STARTED": "2021-05-28 11:14:51.986000",
+    "SCORE": 0,
+    "TURNS": 2,
+    "TIME_PLAYED": 3.55,
+    "GAME_DIFFICULTY": 0,
+    "HAS_QUARTO": "NO",
+    "Average Move Duration": "  1.78"
+  },
+  {
+    "ID": 2,
+    "USERNAME": "soulja",
+    "DATE_STARTED": "2021-05-28 10:22:04.882000",
+    "SCORE": 49760,
+    "TURNS": 4,
+    "TIME_PLAYED": 4.83,
+    "GAME_DIFFICULTY": 0,
+    "HAS_QUARTO": "YES",
+    "Average Move Duration": "  1.21"
+  },
+  {
+    "ID": 3,
+    "USERNAME": "whoopty",
+    "DATE_STARTED": "2021-05-28 10:22:29.826000",
+    "SCORE": 0,
+    "TURNS": 5,
+    "TIME_PLAYED": 11.23,
+    "GAME_DIFFICULTY": 0,
+    "HAS_QUARTO": "NO",
+    "Average Move Duration": "  2.25"
+  },
+  {
+    "ID": 5,
+    "USERNAME": "filling",
+    "DATE_STARTED": "2021-05-28 10:23:52.107000",
+    "SCORE": 0,
+    "TURNS": 6,
+    "TIME_PLAYED": 11.41,
+    "GAME_DIFFICULTY": 0,
+    "HAS_QUARTO": "NO",
+    "Average Move Duration": "  1.90"
+  },
+  {
+    "ID": 6,
+    "USERNAME": "peep",
+    "DATE_STARTED": "2021-05-28 10:24:41.471000",
+    "SCORE": 0,
+    "TURNS": 3,
+    "TIME_PLAYED": 4.98,
+    "GAME_DIFFICULTY": 0,
+    "HAS_QUARTO": "NO",
+    "Average Move Duration": "  1.66"
+  },
+  {
+    "ID": 7,
+    "USERNAME": "asphyx",
+    "DATE_STARTED": "2021-05-28 10:30:36.705000",
+    "SCORE": 0,
+    "TURNS": 6,
+    "TIME_PLAYED": 13.35,
+    "GAME_DIFFICULTY": 0,
+    "HAS_QUARTO": "NO",
+    "Average Move Duration": "  2.23"
+  },
+  {
+    "ID": 9,
+    "USERNAME": "zyzz",
+    "DATE_STARTED": "2021-05-28 10:39:03.897000",
+    "SCORE": 0,
+    "TURNS": 3,
+    "TIME_PLAYED": 3.33,
+    "GAME_DIFFICULTY": 0,
+    "HAS_QUARTO": "NO",
+    "Average Move Duration": "  1.11"
+  },
+  {
+    "ID": 10,
+    "USERNAME": "owwie",
+    "DATE_STARTED": "2021-05-28 10:39:32.647000",
+    "SCORE": 49811,
+    "TURNS": 3,
+    "TIME_PLAYED": 3.80,
+    "GAME_DIFFICULTY": 0,
+    "HAS_QUARTO": "YES",
+    "Average Move Duration": "  1.27"
+  },
+  {
+    "ID": 1,
+    "USERNAME": "firstPlay",
+    "DATE_STARTED": "2021-05-28 10:19:07.121000",
+    "SCORE": 0,
+    "TURNS": 5,
+    "TIME_PLAYED": 34.15,
+    "GAME_DIFFICULTY": 0,
+    "HAS_QUARTO": "NO",
+    "Average Move Duration": "  6.83"
+  },
+  {
+    "ID": 11,
+    "USERNAME": "yipp",
+    "DATE_STARTED": "2021-05-28 10:40:08.167000",
+    "SCORE": 49749,
+    "TURNS": 4,
+    "TIME_PLAYED": 5.06,
+    "GAME_DIFFICULTY": 0,
+    "HAS_QUARTO": "YES",
+    "Average Move Duration": "  1.27"
+  },
+  {
+    "ID": 14,
+    "USERNAME": "loiuuu",
+    "DATE_STARTED": "2021-05-28 11:15:15.076000",
+    "SCORE": 49709,
+    "TURNS": 3,
+    "TIME_PLAYED": 5.85,
+    "GAME_DIFFICULTY": 0,
+    "HAS_QUARTO": "YES",
+    "Average Move Duration": "  1.95"
+  },
+  {
+    "ID": 15,
+    "USERNAME": "yepp",
+    "DATE_STARTED": "2021-05-28 11:17:26.466000",
+    "SCORE": 49547,
+    "TURNS": 4,
+    "TIME_PLAYED": 9.08,
+    "GAME_DIFFICULTY": 0,
+    "HAS_QUARTO": "YES",
+    "Average Move Duration": "  2.27"
+  }
+]
 }

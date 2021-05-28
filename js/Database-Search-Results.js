@@ -12,6 +12,7 @@ let highlightedHeader = document.getElementsByClassName("selected")
 let DBdata;
 
 // Event handler for the submit button
+//TODO: Make this a button, not a submit
 Search.addEventListener("click", event => {
     event.preventDefault();
     reachDatabase();
@@ -22,14 +23,18 @@ function reachDatabase(){
     fetch(url)
         .then(response => {
             if (response.ok){
-                response.json()
-                    .then(data => {
-                        DBdata = data.games;
-                    })
-                    .then(() => showData())
-                    .catch(error => { console.log(error) });
+                return response.json()
+            } else {
+                console.error("Problem loading in the JSON data")
             }
         })
+        .then(data => {
+            DBdata = data.games;
+        })
+        .then( () => {
+            showData();
+        })
+        .catch(error => { alert(error) });
 }
 
 
@@ -49,11 +54,11 @@ function SortColumn(element){
     if (order == 'desc'){
         element.setAttribute('data-order', 'asc')
         DBdata = DBdata.sort((a,b) => a[column] > b[column] ? 1 : -1)
-        text += "&#x2193"
+        text += "&#x2191;"
     } else {
         element.setAttribute('data-order', 'desc')
         DBdata = DBdata.sort((a,b) => a[column] < b[column] ? 1 : -1)
-        text += "&#x2191"
+        text += "&#x2193;"
     }
 
     element.innerHTML = text
@@ -68,71 +73,63 @@ function highlightHeader(element){
     element.setAttribute("class", "selected")
 }
 
-// TODO: Bug where it does sort the tableBody on the data filled in in the form, but only displays it after i clicked one of the tableBody headers
-
-// TODO: Arrows the wrong way around??
-
 // Function that loads in the data inside of the HTML
 function showData(){
-    // TODO: Refactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed. [+9 locations]
-    // TODO: What is this
-    function addRows(){   
-        tableBody.innerHTML = "";
+    const GameID = document.getElementById("Id")
+    const PlayerName = document.getElementById("PlayerName")
+    const Win = document.getElementById("Win")
+    const Lose = document.getElementById("Lose")
+    const Score = document.getElementById("Score")
+    const ScoreSelect = document.getElementById("SelectScore")
 
-        DBdata.forEach(rowData => {
-            const row = `<tr>
-                            <td>${rowData.ID}</td>
-                            <td>${rowData.DATE_STARTED}</td>
-                            <td>${rowData.USERNAME}</td>
-                            <td>${rowData.SCORE}</td>
-                            <td>${rowData["Average Move Duration"]}</td>
-                            <td>${rowData.HAS_QUARTO}</td>
-                        </tr>`;
-        tableBody.innerHTML += row;
-        });
+    tableBody.innerHTML = "";
 
-        const GameID = document.getElementById("Id")
-        const PlayerName = document.getElementById("PlayerName")
-        const Win = document.getElementById("Win")
-        const Lose = document.getElementById("Lose")
-        const Score = document.getElementById("Score")
-        const ScoreSelect = document.getElementById("SelectScore")
-
-        // Filters the data on the values filled in into the form
-        if (!nothingHere(GameID.value)){
+    // Filters the data on the values filled in into the form
+    if (!nothingHere(GameID.value)){
+        DBdata = DBdata.filter(data => {
+            return data.ID == GameID.value;
+        })
+    } else {
+        if (!nothingHere(PlayerName.value)){
             DBdata = DBdata.filter(data => {
-                return data.ID == GameID.value;
+                return data.USERNAME == PlayerName.value;
             })
         } else {
-            if (!nothingHere(PlayerName.value)){
+            if (Win.checked){
                 DBdata = DBdata.filter(data => {
-                    return data.USERNAME == PlayerName.value;
+                    return data.HAS_QUARTO == "Yes";
+                })
+            } else if (Lose.checked){
+                DBdata = DBdata.filter(data => {
+                    return data.HAS_QUARTO == "No";
                 })
             } else {
-                if (Win.checked){
+                if (!nothingHere(Score.value)){
                     DBdata = DBdata.filter(data => {
-                        return data.HAS_QUARTO == "Yes";
+                        switch(ScoreSelect.value){
+                            case 'Above':
+                                return data.SCORE > Score.value; 
+                            case 'Below':
+                                return data.SCORE < Score.value;
+                        }  
                     })
-                } else if (Lose.checked){
-                    DBdata = DBdata.filter(data => {
-                        return data.HAS_QUARTO == "No";
-                    })
-                } else {
-                    if (!nothingHere(Score.value)){
-                        DBdata = DBdata.filter(data => {
-                            switch(ScoreSelect.value){
-                                case 'Above':
-                                    return data.SCORE > Score.value; 
-                                case 'Below':
-                                    return data.SCORE < Score.value;
-                            }  
-                        })
-                    }
                 }
-            }       
-        }
+            }
+        }       
     }
-    addRows();
+
+    DBdata.forEach(rowData => {
+        console.log(rowData)
+        const row = `<tr>
+                        <td>${rowData.ID}</td>
+                        <td>${rowData.DATE_STARTED}</td>
+                        <td>${rowData.USERNAME}</td>
+                        <td>${rowData.SCORE}</td>
+                        <td>${rowData["Average Move Duration"]}</td>
+                        <td>${rowData.HAS_QUARTO}</td>
+                    </tr>`;
+        tableBody.innerHTML += row;
+    });
 }
 
 const IDHead = document.getElementById("IDHead")
