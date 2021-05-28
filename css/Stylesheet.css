@@ -13,9 +13,9 @@ table {
     border-collapse: collapse;
 }
 
-tr:nth-child(even) {
+/* tr:nth-child(even) {
     background-color: #dad1b8;
-}
+} Looks Weird... */
 
 body {
     display: flex;
@@ -498,7 +498,7 @@ color: #A6935B;
     border: 1px solid #ddd;
 }
   
-.form #SearchButton {
+.button {
     margin: 15px;
     padding: 10px 20px;
     font-weight: bold;
@@ -508,7 +508,7 @@ color: #A6935B;
     cursor: pointer;
 }
 
-.form #SearchButton:hover {
+.button:hover {
     background-color: #6d613b;
 }
 

@@ -4,7 +4,9 @@ const url = '../rest/database_Results.json';
 const table = document.getElementById("dbTable")
 const tableBody = document.getElementById("DatabaseResults")
 
-const Search = document.getElementById("SearchButton")
+const search = document.getElementById("SearchButton")
+
+const back = document.getElementById("BackButton")
 
 const th = document.querySelector("th")
 
@@ -13,10 +15,15 @@ let DBdata;
 
 // Event handler for the submit button
 //TODO: Make this a button, not a submit
-Search.addEventListener("click", event => {
+search.addEventListener("click", event => {
     event.preventDefault();
     reachDatabase();
 });
+
+back.addEventListener("click", (event) => {
+    event.preventDefault();
+    location.href = '../index.html';
+})
 
 // Function that retrieves the data from the JSON file
 function reachDatabase(){
@@ -68,7 +75,7 @@ function SortColumn(element){
 // Function that highlights the column by clicking on the header
 function highlightHeader(element){
     for (let column of highlightedHeader){
-        column.className = ""
+        column.setAttribute("class", "")
     }
     element.setAttribute("class", "selected")
 }
