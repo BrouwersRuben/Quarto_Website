@@ -1,18 +1,21 @@
 /*These following lines are general css rules for the whole website*/
 
-html,
-body {
+html, body {
     height: 100%;
 }
 
 table, td, th {
     border: 1px solid black;
-  }
+}
   
-  table {
+table {
     width: 100%;
     border-collapse: collapse;
-  }
+}
+
+tr:nth-child(even) {
+    background-color: #dad1b8;
+}
 
 body {
     display: flex;
@@ -519,7 +522,7 @@ thead {
 }
 
 .selected{
-    background-color: #dbcda8;
+    background-color: #dad1b8;
 }
 
 /* Thank you for downloading page css rules */
